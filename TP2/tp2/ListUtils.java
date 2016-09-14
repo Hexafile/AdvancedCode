@@ -64,21 +64,26 @@ public class ListUtils {
 	
 	public static int max(List<Integer> l){
 		Iterator<Integer> it = l.iterator();
-		int max = 0;
+		int max= it.next();
 		while (it.hasNext()) {
-			if(max <it.next())max=it.next();
+			int tmp = it.next();
+			if(max <tmp){
+				max=tmp;
+			}
 		}
 		return max;
 	}
 	
 	public static int min(List<Integer> l){
 		Iterator<Integer> it = l.iterator();
-		int min=0;
-		if(it.hasNext())min =it.next();
+		int min= it.next();
 		while (it.hasNext()) {
-			if(min >it.next())min=it.next();
+			int tmp = it.next();
+			if(min >tmp)min=tmp;
 		}
 		return min;
 	}
+	
+	
 
 }
