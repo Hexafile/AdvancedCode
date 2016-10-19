@@ -1,19 +1,20 @@
-public class Pile {
+
+public class PileThree<K extends Comparable<K>, V> {
 	private int sommet;
-	private Cellule[] c;
+	private BinarySearchTree<K, V>[] b;
 	
-	Pile(int taille){
-		c = new Cellule[taille];
+	PileThree(int taille){
+		b = new BinarySearchTree<K,V>()[taille];
 		sommet = -1;
 	}
 	
 	public int size(){
-		return c.length;
+		return b.length;
 	}
 	
 	public boolean push(Cellule cel){
 		if(!isFull()){
-			c[++sommet]=cel;
+			b[++sommet]=cel;
 			return true;
 		}
 		return false;
@@ -24,15 +25,15 @@ public class Pile {
 	}
 	
 	public boolean isFull(){
-		return sommet==c.length-1;
+		return sommet==b.length-1;
 	}
 	
 	public Cellule pop(){
-		return c[sommet--];
+		return b[sommet--];
 	}
 	
 	public void clear(){
 		sommet = -1;
-		c = new Cellule[c.length];				
+		b = new Cellule[c.length];				
 	}
 }
